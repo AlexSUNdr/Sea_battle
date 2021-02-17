@@ -5,7 +5,7 @@ import curses
 import argparse
 
 
-def How_many_ships(height, width):
+def how_many_ships(height, width):
     def calculate_sum(k):
         result = 0
         for i in range(1, k + 1):
@@ -25,18 +25,21 @@ def How_many_ships(height, width):
 def fill_by_yourself():
     print('By yourself\n')
 
+
 def fill_automatically():
     print('Authomatically\n')
 
-def Choose_type_of_filling():
-    print('\nPress y to fill ships on sea field yourself.\nPress a to take automatically generated sea field')
-    c = input()
-    if c == 'y' or c == 'Y':
-        fill_by_yourself()
-    elif c == 'a' or c == 'A':
-        fill_automatically() 
 
-def play(UserName):
+def choose_type_of_filling():
+    print('\nPress y to fill ships on sea field yourself.\nPress a to take automatically generated sea field')
+    answer = input()
+    if answer.lower() == 'y':
+        fill_by_yourself()
+    elif answer.lower() == 'a':
+        fill_automatically()
+
+
+def play(user_name):
     height = 0
     width = 0
     while height < 5 or width < 5:
@@ -48,9 +51,9 @@ def play(UserName):
         if height < 5 or width < 5:
             print('Your field is very small, enter another size of field\n\n')
 
-    Choose_type_of_filling(height, width)
+    choose_type_of_filling(height, width)
 
-    ships = How_many_ships()
+    ships = how_many_ships(height, width)
     
 
 seabattle_str = '#######################################\n' \
@@ -76,6 +79,3 @@ elif c == 'p' or c == 'P':
             
     # Start new game
     play(UserName)
-
-
-

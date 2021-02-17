@@ -37,8 +37,9 @@ def Choose_type_of_filling():
         fill_automatically() 
 
 def play(UserName):
-    V = 0
-    while V < 25:
+    height = 0
+    width = 0
+    while height < 5 or width < 5:
         print('Enter height of field')
         height = int(input())
         print('Enter width of field')

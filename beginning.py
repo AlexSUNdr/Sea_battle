@@ -4,9 +4,23 @@ import math
 import curses
 import argparse
 
+
 def How_many_ships(height, width):
-    V = height * width
-    #waiting for bin_f from Tagir
+    def calculate_sum(k):
+        result = 0
+        for i in range(1, k + 1):
+            result += i * (k - i + 1)
+        return result
+
+    optimal = 1
+
+    for i in range(1, max(height, width) + 1):
+        if calculate_sum(i) > height * width * 0.2:
+            break
+        optimal = i
+
+    return optimal
+
 
 def fill_by_yourself():
     print('By yourself\n')
@@ -30,7 +44,7 @@ def play(UserName):
         print('Enter width of field')
         width = int(input())
         V = height * width
-        if V < 25:
+        if height < 5 or width < 5:
             print('Your field is very small, enter another size of field\n\n')
 
     Choose_type_of_filling(height, width)

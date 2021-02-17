@@ -1,4 +1,3 @@
-from enum import Enum
 from random import randint
 
 
@@ -82,7 +81,7 @@ class GameField:
 
             return True
         else:
-            if y + length - 1 >= len(field[0])
+            if y + length - 1 >= len(field[0]):
                 return False
 
             for j in range(y, y + length):
@@ -101,7 +100,7 @@ class GameField:
                 field[x][j] = CellType.SHIP
 
 
-class CellType(Enum):
+class CellType:
     HIDDEN = 1
     EMPTY = 2
     SHIP = 3

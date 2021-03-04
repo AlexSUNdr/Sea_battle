@@ -22,6 +22,8 @@ def start_game(height=10, width=10, save=None):
             result = sea.player_move()
         if sea.check_win():
             winner = "player"
+            draw.draw_field(sea.computer_field.shown, sea.player_field.real)
+            break
         draw.draw_field(sea.computer_field.shown, sea.player_field.real)
 
         result = sea.computer_move()

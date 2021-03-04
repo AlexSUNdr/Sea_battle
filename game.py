@@ -36,6 +36,7 @@ class Game:
             self.computer_left -= 1
             return True
         else:
+            self.player_field.real[x][y] = CellType.HIDDEN
             self.player_field.shown[x][y] = CellType.EMPTY
             return False
 
